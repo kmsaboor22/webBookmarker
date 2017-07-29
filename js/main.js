@@ -8,7 +8,7 @@ document.getElementById('myForm').addEventListener('submit', function saveBookma
     var siteName = document.getElementById('siteName').value;
     var siteUrl = document.getElementById('siteUrl').value;
 
-    //object
+    //object vid 16:02
     var bookmark = {
         name: siteName,
 
