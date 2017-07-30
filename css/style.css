@@ -3,6 +3,11 @@
 body {
     padding-top: 20px;
     padding-bottom: 20px;
+    background-color: #e4c9d7;
+}
+
+#title1 {
+    color: #fff;
 }
 
 

@@ -8,12 +8,19 @@ document.getElementById('myForm').addEventListener('submit', function saveBookma
     var siteName = document.getElementById('siteName').value;
     var siteUrl = document.getElementById('siteUrl').value;
 
-    //object vid 16:02
+    //object for our input values
     var bookmark = {
         name: siteName,
-
+        url: siteUrl
     }
 
+    /*
+    //local strage test for instruction
+    localStorage.setItem('test', 'hello world');
+    console.log(localStorage.getItem('test'));
+    localStorage.removeItem('test');
+    console.log(localStorage.getItem('test')); 
+*/
     //this prevent the form from submitting
     e.preventDefault();
 });
