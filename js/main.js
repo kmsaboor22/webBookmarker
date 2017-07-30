@@ -25,7 +25,8 @@ document.getElementById('myForm').addEventListener('submit', function saveBookma
     if (localStorage.getItem('bookmarks') === null) {
         //Init array
         var bookmarks = [];
-        bookmarks.push();
+        //Add to Array 20:59
+        bookmarks.push(bookmark);
     }
     //this prevent the form from submitting
     e.preventDefault();
