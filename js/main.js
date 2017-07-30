@@ -21,6 +21,12 @@ document.getElementById('myForm').addEventListener('submit', function saveBookma
     localStorage.removeItem('test');
     console.log(localStorage.getItem('test')); 
 */
+    //test if bookmarks is null
+    if (localStorage.getItem('bookmarks') === null) {
+        //Init array
+        var bookmarks = [];
+        bookmarks.push();
+    }
     //this prevent the form from submitting
     e.preventDefault();
 });
