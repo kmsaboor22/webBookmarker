@@ -25,8 +25,20 @@ document.getElementById('myForm').addEventListener('submit', function saveBookma
     if (localStorage.getItem('bookmarks') === null) {
         //Init array
         var bookmarks = [];
-        //Add to Array 20:59
+        //Add to Array 
         bookmarks.push(bookmark);
+        //set to localstorage
+        //Stringify will turn bookmarks into a sring
+        localStorage.setItem('bookmarks', JSON.stringify(bookmarks));
+    } else {
+        // get bookmarks from local Storage
+        // turn a string into a JSON
+        var bookmarks = JSON.parse(localStorage.getItem('bookmarks'));
+        //add bookmark to array
+        bookmarks.push(bookmark);
+        //reset back to local storage
+        localStorage.setItem('bookmarks', JSON.stringify(bookmarks));
+        //24:51
     }
     //this prevent the form from submitting
     e.preventDefault();
