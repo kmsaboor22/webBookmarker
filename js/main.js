@@ -58,9 +58,10 @@ function fetchBookmarks() {
         var url = bookmarks[i].url;
 
         bookmarksResults.innerHTML += '<div class="well">' +
-            '<h3>' +
-            name +
+            '<h3>' + name +
+            ' <a  class="btn btn-default" target="_blank" href="' + url + '">Visit</a>' + //32:31
             '</h3>' +
-            '</div>'
+            '</div>';
+
     }
 }
