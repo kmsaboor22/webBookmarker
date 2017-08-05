@@ -38,8 +38,16 @@ document.getElementById('myForm').addEventListener('submit', function saveBookma
         bookmarks.push(bookmark);
         //reset back to local storage
         localStorage.setItem('bookmarks', JSON.stringify(bookmarks));
-        //24:51
+
     }
     //this prevent the form from submitting
     e.preventDefault();
 });
+//Fetch bookmarks
+function fetchBookmarks() {
+    // get bookmarks from local Storage
+    // turn a string into a JSON
+    var bookmarks = JSON.parse(localStorage.getItem('bookmarks'));
+
+    console.log(bookmarks)
+}
