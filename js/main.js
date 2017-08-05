@@ -48,6 +48,19 @@ function fetchBookmarks() {
     // get bookmarks from local Storage
     // turn a string into a JSON
     var bookmarks = JSON.parse(localStorage.getItem('bookmarks'));
+    // Get output ID
+    var bookmarksResults = document.getElementById('bookmarkResults');
+    //Build Output
+    bookmarksResults.innerHTML = '';
 
-    console.log(bookmarks)
+    for (i = 0; i < bookmarks.length; i++) {
+        var name = bookmarks[i].name;
+        var url = bookmarks[i].url;
+
+        bookmarksResults.innerHTML += '<div class="well">' +
+            '<h3>' +
+            name +
+            '</h3>' +
+            '</div>'
+    }
 }
