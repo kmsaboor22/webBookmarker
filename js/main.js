@@ -45,6 +45,9 @@ document.getElementById('myForm').addEventListener('submit', function saveBookma
 
     }
 
+    //Clear entry
+    document.getElementById('myForm').reset();
+
     //Re-fetch bookmarks
     fetchBookmarks();
 
