@@ -8,6 +8,10 @@ document.getElementById('myForm').addEventListener('submit', function saveBookma
     var siteName = document.getElementById('siteName').value;
     var siteUrl = document.getElementById('siteUrl').value;
 
+    if (!siteName || !siteUrl) {
+        alert('Please fill in the form');
+    }
+
     //object for our input values
     var bookmark = {
         name: siteName,
@@ -40,12 +44,29 @@ document.getElementById('myForm').addEventListener('submit', function saveBookma
         localStorage.setItem('bookmarks', JSON.stringify(bookmarks));
 
     }
+
+    //Re-fetch bookmarks
+    fetchBookmarks();
+
     //this prevent the form from submitting
     e.preventDefault();
 });
 //delete function
 function deleteBookmark(url) {
+    //Fetch bookmarks fromlocal storage
+    var bookmarks = JSON.parse(localStorage.getItem('bookmarks'));
+    //loop through bookmarks
+    for (i = 0; i < bookmarks.length; i++) {
+        if (bookmarks[i].url == url) {
+            //remove from array
+            bookmarks.splice(i, 1)
+        }
+    }
+    //reset back to local storage
+    localStorage.setItem('bookmarks', JSON.stringify(bookmarks))
 
+    //Re-fetch bookmarks
+    fetchBookmarks();
 }
 
 //Fetch bookmarks
@@ -65,7 +86,7 @@ function fetchBookmarks() {
         bookmarksResults.innerHTML += '<div class="well">' +
             '<h3>' + name +
             ' <a  class="btn btn-default" target="_blank" href="' + url + '">Visit</a>' + //32:31
-            ' <a  onclick="deleteBookmark(\'' + url + '\')" class="btn btn-danger" target="_blank" href="#">Delete</a>' +
+            ' <a  onclick="deleteBookmark(\'' + url + '\')" class="btn btn-danger" href="#">Delete</a>' +
             '</h3>' +
             '</div>';
 
